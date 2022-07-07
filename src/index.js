@@ -5,7 +5,6 @@ import addCheckboxEvent from './modules/statusUpdate.js';
 import displayItems from './modules/displayTask.js';
 import './style.css';
 
-// event
 // Display TodoList
 displayItems();
 
