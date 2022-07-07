@@ -1,103 +1,67 @@
-* {
+body {
   margin: 0;
   padding: 0;
+}
+
+.container {
+  width: 50%;
+  max-width: 700px;
+  margin: 20px auto;
+  border-radius: 6px;
+  box-shadow: 0 1px 6px rgba(0, 0, 0, 0.2);
   box-sizing: border-box;
+  padding: 0 0 0;
+  overflow: hidden;
+  border: 1px solid lightgray;
+  margin-top: 5rem;
 }
 
-:root {
-  --textColor: #4b4b4b;
-}
-
-body {
-  width: 100%;
-}
-
-.todo-app {
-  width: 30%;
-  margin: 2rem auto;
-  box-shadow: -1px 1px 6px 0 #878586;
-  color: var(--textColor);
-}
-
-.header {
+.title {
   display: flex;
   justify-content: space-between;
+  padding: 5px 10px;
   align-items: center;
-  border-bottom: 1px solid rgba(69, 69, 70, 0.5);
-  padding: 0.75rem;
+  border-bottom: solid lightgray 1px;
 }
 
-.header > h1 {
-  font-size: 1rem;
-  color: var(--textColor);
-}
-
-.todo-input-wrapper {
-  display: flex;
-  align-items: center;
-  border-bottom: 1px solid rgba(69, 69, 70, 0.5);
-  padding: 0.75rem;
-}
-
-.todo-input-wrapper input {
-  padding: 0.1rem;
+.btn {
   border: none;
-  outline: none;
+}
+
+.input {
   width: 100%;
-  font-style: italic;
-}
-
-.todo-wrapper {
-  display: flex;
-  justify-content: space-between;
-  padding: 0.5rem;
-  border-bottom: 1px solid rgba(69, 69, 70, 0.5);
-  color: var(--textColor);
-}
-
-.todo-wrapper > .left-align {
-  display: flex;
-  align-items: center;
-  width: 100%;
-}
-
-.left-align p {
-  padding: 0 0.5rem;
-}
-
-.clear-all-btn {
-  width: 100%;
-  background-color: #e3e3e3;
-  padding: 0.75rem;
+  padding: 10px;
   border: none;
-  color: var(--textColor);
+  height: 25px;
 }
 
-.clear-all-btn:hover {
-  cursor: pointer;
-  font-weight: bold;
+.del {
+  margin-left: auto;
 }
 
-.edit-input {
-  padding: 0.1rem 0.75rem;
+.box {
+  margin-right: 15px;
+}
+
+.todo-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 0;
+}
+
+.todo-list li {
+  border-top: solid 1px lightgray;
+  border-bottom: solid 1px lightgray;
+  padding: 10px;
+  display: flex;
+}
+
+.clear-btn {
+  width: 100%;
+  height: 50px;
   border: none;
-  outline: none;
-  width: 100%;
-  background-color: #f6f6c8;
-}
-
-.ionic {
-  font-size: 1.3rem;
-}
-
-.delete-icon {
-  color: red;
-}
-
-.none {
-  display: none !important;
-}
-
-.description-wrapper {
-  width: 100%;
+  color: gray;
+  font-size: 15px;
 }
