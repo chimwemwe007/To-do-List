@@ -1,0 +1,67 @@
+body {
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  width: 50%;
+  max-width: 700px;
+  margin: 20px auto;
+  border-radius: 6px;
+  box-shadow: 0 1px 6px rgba(0, 0, 0, 0.2);
+  box-sizing: border-box;
+  padding: 0 0 0;
+  overflow: hidden;
+  border: 1px solid lightgray;
+  margin-top: 5rem;
+}
+
+.title {
+  display: flex;
+  justify-content: space-between;
+  padding: 5px 10px;
+  align-items: center;
+  border-bottom: solid lightgray 1px;
+}
+
+.btn {
+  border: none;
+}
+
+.input {
+  width: 100%;
+  padding: 10px;
+  border: none;
+  height: 25px;
+}
+
+.del {
+  margin-left: auto;
+}
+
+.box {
+  margin-right: 15px;
+}
+
+.todo-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 0;
+}
+
+.todo-list li {
+  border-top: solid 1px lightgray;
+  border-bottom: solid 1px lightgray;
+  padding: 10px;
+  display: flex;
+}
+
+.clear-btn {
+  width: 100%;
+  height: 50px;
+  border: none;
+  color: gray;
+  font-size: 15px;
+}
