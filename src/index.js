@@ -17,7 +17,7 @@ const todo = [
   },
   {
     description: 'complete To Do list project',
-    completed: false,
+    completed: true,
     index: 1,
   },
 ];
