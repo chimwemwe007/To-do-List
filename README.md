@@ -41,9 +41,6 @@ To get a local copy up and running follow these simple example steps.
 - Twitter: [@CHxMZ](https://twitter.com/CHxMZ)
 - LinkedIn: [chimwemwemkandawire](https://linkedin.com/in/chimwemwemkandawire)
 
-👤 **Author2**
-
-
 ## 🤝 Contributing
 
 Contributions, issues, and feature requests are welcome!
