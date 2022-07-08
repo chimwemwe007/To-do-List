@@ -1,19 +1,20 @@
 ![](https://img.shields.io/badge/Microverse-blueviolet)
 
-# Project Name
+# To-do List app
 
-> Description the project.
+> A to list structure made from javascript (ES6), html, css and webpack
 
 
 ## Built With
 
-- Major languages
-- Frameworks
-- Technologies used
-
+- html
+- css
+- javascript
+- ES6
+- Webpack
 ## Live Demo (if available)
 
-[Live Demo Link](https://livedemo.com)
+[Live Demo Link]()
 
 
 ## Getting Started
@@ -42,9 +43,9 @@ To get a local copy up and running follow these simple example steps.
 
 👤 **Author1**
 
-- GitHub: [@githubhandle](https://github.com/githubhandle)
-- Twitter: [@twitterhandle](https://twitter.com/twitterhandle)
-- LinkedIn: [LinkedIn](https://linkedin.com/in/linkedinhandle)
+- GitHub: [@chimwemwe007](https://github.com/chimwemwe007)
+- Twitter: [@CHxMZ](https://twitter.com/CHxMZ)
+- LinkedIn: [chimwemwemkandawire](https://linkedin.com/in/chimwemwemkandawire)
 
 👤 **Author2**
 
