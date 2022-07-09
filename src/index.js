@@ -1,33 +1,26 @@
-import './style.css';
+import renderItems from './status';
+import store from './drag';
 
-const grab = (e, isId = false, qAll = false) => {
-  if (isId) {
-    return document.getElementById(e);
-  } if (qAll) {
-    return document.querySelectorAll(`.${e}`);
-  }
-  return document.querySelector(`.${e}`);
-};
+const form = document.getElementById('add-todo');
+form.addEventListener('submit', (event) => {
+  event.preventDefault();
+  const description = form.elements[0].value;
+  store.addTodo(description);
+  form.elements[0].value = '';
+});
+window.addEventListener('load', () => {
+  document.getElementById('clear-btn').addEventListener('click', () => {
+    store.clearCompleted();
+  });
 
-const todo = [
-  {
-    description: 'Wash the dishes',
-    completed: true,
-    index: 0,
-  },
-  {
-    description: 'complete To Do list project',
-    completed: true,
-    index: 1,
-  },
-];
+  const STORE_KEY = 'localstorage/todos';
 
-todo.forEach((e) => {
-  const template = document.createElement('template');
-  template.innerHTML = `<li>
-        <div class="box"> <input type="checkbox" checked="${e.completed}"> </div>
-        <div> <span>${e.description}</span> </div>
-         <div class="del"><span type="button" class="material-icons btn delete">delete</span></div>
-         </li>`;
-  grab('todo-list', true).appendChild(template.content.firstChild);
+  store.onUpdate(() => {
+    renderItems(store.todos);
+  });
+  store.onUpdate(() => {
+    localStorage.setItem(STORE_KEY, JSON.stringify(store.todos));
+  });
+  const saved = localStorage.getItem(STORE_KEY);
+  store.loadTodos(saved ? JSON.parse(saved) : []);
 });
