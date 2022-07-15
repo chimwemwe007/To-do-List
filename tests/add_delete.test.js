@@ -2,7 +2,7 @@
  * @jest-environment jsdom
  */
 
-import { addData, deleteTask, getData } from '../src/services.js';
+const { addData, deleteTask, getData } = require('../src/services');
 
 describe('add and delete testing', () => {
   it('should add new data into the local storage.', () => {
