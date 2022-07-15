@@ -41,7 +41,7 @@ describe('add and delete testing', () => {
     expect(getData('tasks')[3].description).toBe('sell the pen!');
   });
 
-  it('should remove data from the local storage.', () => {
+  it('This should remove data from the local storage.', () => {
     const task1 = {
       description: 'Head back home',
       completed: false,
