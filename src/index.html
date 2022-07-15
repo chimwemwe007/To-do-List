@@ -1,27 +1,43 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- font awesome icons -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+      integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <title>Todo-list</title>
+  </head>
+  <body>
+    <section class="task_section">
+      <div class="task__header">
+        <p>Today's To Do</p>
+        <i class="fa-solid fa-arrows-rotate"></i>
+      </div>
 
-  <title>Todo List</title>
-</head>
-<body>
-<div class="container">
-  <div class="title">
-    <h2>Today's To Do</h2>
-    <div><button type="button" class="material-icons btn">sync</button></div>
-    </div>
-    <form id="form">
-      <input type="text" class="input" placeholder="Add to your List...">
-    </form>
-    <ul id="todo-list" class="todo-list">
-    </ul>
-    <div>
-      <button class="clear-btn">Clear all completed</button>
-    </div>
-  </div>
-</body>
+      <form action="" id="task_form" class="task__form">
+        <div class="input">
+          <input type="text" placeholder="Add to your list" id="task_input" />
+          <button class="btn btn--hide" type="submit">
+            <i class="fa-solid fa-turn-down" id="add_task"></i>
+          </button>
+        </div>
+      </form>
+
+      <ul class="todo_list">
+      </ul>
+
+      <div class="task__footer">
+        <button class="btn btn--clear" type="submit">
+          Clear all completed
+        </button>
+      </div>
+    </section>
+  </body>
 </html>

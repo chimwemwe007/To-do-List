@@ -1,82 +1,110 @@
+/* eslint-disable import/extensions */
+import {
+  createLocalStorage,
+  addData,
+  getData,
+  deleteTask,
+  updateOneTask,
+} from './services';
 import './style.css';
-import completed from './status';
+import { clearCompleteTasks, updateCompleteTask } from './update_complete';
 
-const grab = (e, isId = false, qAll = false) => {
-  if (isId) {
-    return document.getElementById(e);
-  } if (qAll) {
-    return document.querySelectorAll(`.${e}`);
-  }
-  return document.querySelector(`.${e}`);
-};
+const list = document.querySelector('.todo_list');
+const taskInput = document.querySelector('#task_input');
+const taskForm = document.querySelector('#task_form');
+const clearCompletedBtn = document.querySelector('.btn--clear');
 
-function cv3(n) {
-  const elements = [];
-  n.forEach((e) => {
-    const parts = e.split('.');
-    const el = parts[0];
-    const classes = parts[1];
-    const element = document.createElement(el);
-    element.className = classes;
-    elements.push(element);
+function createTaskElement(description, index, completed = false) {
+  const li = document.createElement('li');
+  li.classList.add('item');
+
+  li.innerHTML = `<div id="task_item" class="group"> 
+                    <input id="check_task" type="checkbox" ${
+  completed ? 'checked' : ''
+} data-index="${index}"/>  
+                    <input class="reset-input ${
+  completed ? 'completed' : ''
+}" data-index="${index}" type="text" disabled value="${description}" />
+                  </div> 
+                 <i class="fa-solid fa-ellipsis-vertical" id="move_task"></i>
+                 <i class="fa-solid fa-trash icon_hide" data-id="${index}" id="delete_task"></i>`;
+  return li;
+}
+
+function displayAllTasks() {
+  const tasks = getData('tasks');
+  tasks.forEach(({ description, index, completed }) => {
+    const li = createTaskElement(description, index, completed);
+    list.appendChild(li);
   });
-  return elements;
 }
 
-const todo = [
-  {
-    description: 'Wash the dishes',
-    completed: false,
-    index: 0,
-  },
-  {
-    description: 'complete To Do list project',
-    completed: false,
-    index: Array.length,
-  },
-  {
-    description: 'Wash the dishes',
-    completed: false,
-    index: 0,
-  },
-  {
-    description: 'Wash the dishes',
-    completed: false,
-    index: 0,
-  },
-];
+taskForm.addEventListener('submit', (e) => {
+  e.preventDefault();
 
-if (localStorage.getItem('collection') === null) {
-  localStorage.setItem('collection', JSON.stringify(todo));
-}
+  if (taskInput.value.trim() === '') return;
 
-const work = JSON.parse(localStorage.getItem('collection'));
+  const index = getData('tasks').length + 1;
+  const task = { description: taskInput.value, index, completed: false };
 
-work.forEach((e, i) => {
-  const elements = cv3([
-    'li.li',
-    'div.box',
-    'input',
-    'div',
-    'span.txt',
-    'div.del',
-    'span.material-icons btn delete',
-  ]);
+  addData(task);
 
-  elements[2].type = 'checkbox';
-  elements[2].checked = work[i].completed;
+  const li = createTaskElement(task.description, index, false);
+  list.appendChild(li);
 
-  elements[2].addEventListener('change', () => completed(work, i));
+  taskInput.value = '';
+});
 
-  elements[6].innerText = 'delete';
-  elements[4].innerText = work[i].description;
-  elements[1].appendChild(elements[2]);
-  elements[3].appendChild(elements[4]);
-  elements[5].appendChild(elements[6]);
+document.addEventListener('click', (e) => {
+  if (e.target && e.target.id === 'task_item') {
+    const deleteTaskBtn = e.target.parentElement.querySelector('#delete_task');
+    const moveTaskBtn = e.target.parentElement.querySelector('#move_task');
+    const inputTask = e.target.parentElement.querySelector('.reset-input');
+    moveTaskBtn.classList.toggle('icon_hide');
+    deleteTaskBtn.classList.toggle('icon_hide');
 
-  elements[0].appendChild(elements[1]);
-  elements[0].appendChild(elements[3]);
-  elements[0].appendChild(elements[5]);
+    // TODO: this is for update the text of input
+    inputTask.removeAttribute('disabled');
+    inputTask.focus();
 
-  grab('todo-list', true).appendChild(elements[0]);
+    inputTask.addEventListener('keyup', (e) => {
+      const { index } = inputTask.dataset;
+
+      if (e.key === 'Enter') {
+        e.preventDefault();
+        inputTask.setAttribute('disabled', 'true');
+      }
+
+      updateOneTask(index, inputTask.value);
+    });
+  } else if (e.target && e.target.id === 'delete_task') {
+    const taskId = e.target.dataset.id;
+    deleteTask(taskId);
+    e.target.parentNode.remove(); // remove the task in the browser
+
+    list.innerHTML = '';
+    displayAllTasks();
+  } else if (e.target && e.target.id === 'check_task') {
+    const taskId = e.target.dataset.index;
+    const inputTask = e.target.parentElement.querySelector('.reset-input');
+    const isCompleted = e.target.checked;
+
+    if (isCompleted) inputTask.classList.add('completed');
+    else {
+      inputTask.classList.remove('completed');
+    }
+
+    updateCompleteTask(taskId, isCompleted);
+  }
+});
+
+document.addEventListener('DOMContentLoaded', () => {
+  createLocalStorage('tasks', []);
+  displayAllTasks();
+});
+
+clearCompletedBtn.addEventListener('click', () => {
+  clearCompleteTasks();
+  list.innerHTML = '';
+  displayAllTasks();
 });
