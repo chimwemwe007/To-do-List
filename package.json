@@ -32,12 +32,13 @@
   },
   "repository": {
     "type": "git",
+    "url": "git+https://github.com/Chimwemwe007/To-do_List.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "bugs": {
-    
+    "url": "https://github.com/chimwemwe007/To-do-List/issues"
   },
   "homepage": "https://github.com/Tchilo/My-template#readme"
 }
