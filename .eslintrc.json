@@ -16,12 +16,6 @@
     "eol-last": "off",
     "import/no-unresolved": "off"
   },
-  "import/extensions": [
-    "error",
-    {
-      "js": "ignorePackages"
-    }
-  ],
   "ignorePatterns": [
     "dist/",
     "build/"
