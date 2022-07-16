@@ -1,4 +1,4 @@
-const { addData, deleteTask, getData } = require('../services');
+const { addData, deleteTask, getData } = require('../services.js');
 
 describe('add and delete testing', () => {
   it('should add new data into the local storage.', () => {
