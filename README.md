@@ -1,6 +1,7 @@
 ![](https://img.shields.io/badge/Microverse-blueviolet)
 
 # To-do List app
+## Testing Part One
 
 ### In this milestone project i had to do the following as per the requirements
 > In this project, you will implement the CRUD (create, update, delete) methods. All the elements of the user > interface will be fully functional.
@@ -9,6 +10,8 @@
 > Implement a function for adding a new task (add a new element to the array).
 > Implement a function for deleting a task (remove an element from the array).
 > Implement a function for editing task descriptions.
+> Use jest framework for testing.
+> Created mock HTML to test if add/delete functions add or remove exactly one <li> element to/from the list in the DOM.
 
 
 
@@ -19,7 +22,8 @@
 - javascript
 - ES6
 - Webpack
-- JEST  Framework
+- babel
+- JEST
 ## Live Demo (if available)
 
 [Live Demo Link](https://chimwemwe007.github.io/To-do-List/)
@@ -44,6 +48,11 @@ To get a local copy up and running follow these simple example steps.
 - GitHub: [@chimwemwe007](https://github.com/chimwemwe007)
 - Twitter: [@CHxMZ](https://twitter.com/CHxMZ)
 - LinkedIn: [chimwemwemkandawire](https://linkedin.com/in/chimwemwemkandawire)
+
+👤 **Rejoice Monday**
+
+- GitHub: [@rmjspecial](https://github.com/rmjspecial)
+
 
 ## 🤝 Contributing
 

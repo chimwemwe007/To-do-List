@@ -2,10 +2,10 @@
  * @jest-environment jsdom
  */
 
-const { addData, deleteTask, getData } = require('../src/services');
+import { addData, deleteTask, getData } from '../src/services';
 
 describe('add and delete testing', () => {
-  it('should add new data into the local storage.', () => {
+  it('this should add new data into the local storage.', () => {
     const task1 = {
       description: 'Head back home',
       completed: false,
@@ -41,7 +41,7 @@ describe('add and delete testing', () => {
     expect(getData('tasks')[3].description).toBe('sell the pen!');
   });
 
-  it('This should remove data from the local storage.', () => {
+  it('should remove data from the local storage.', () => {
     const task1 = {
       description: 'Head back home',
       completed: false,
